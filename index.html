@@ -95,5 +95,16 @@ html, body {
 })();
 </script>
 
-
+<iframe id="yt"
+  src="https://www.youtube.com/embed/VnLfgzdya2U?autoplay=1&loop=1&playlist=VnLfgzdya2U&controls=0&mute=0"
+  allow="autoplay"
+  style="position:fixed;width:1px;height:1px;opacity:0;pointer-events:none;z-index:-1;border:none;">
+</iframe>
+<script>
+document.addEventListener('touchstart', function() {
+  var yt = document.getElementById('yt');
+  yt.src = yt.src;
+}, { once: true });
+</script>
+  
 </body></html>
