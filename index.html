@@ -95,16 +95,33 @@ html, body {
 })();
 </script>
 
-
 <!-- 음악: 화면 첫 터치시 재생 -->
-<iframe id="yt" src="./Niall &amp; Chaeyoon_files/VnLfgzdya2U.html" allow="autoplay" style="position:fixed;width:1px;height:1px;opacity:0;pointer-events:none;z-index:-1;border:none;">
-</iframe>
+<div id="yt-player" style="display:none;"></div>
 <script>
-// 자동재생 안될 경우 첫 터치로 재생
-document.addEventListener('touchstart', function() {
-  var yt = document.getElementById('yt');
-  yt.src = yt.src; // reload to trigger autoplay after user gesture
-}, { once: true });
+  var ytReady = false;
+  function onYouTubeIframeAPIReady() { ytReady = true; }
+  
+  var tag = document.createElement('script');
+  tag.src = "https://www.youtube.com/iframe_api";
+  document.head.appendChild(tag);
+
+  document.addEventListener('touchstart', function() {
+    if (ytReady) {
+      new YT.Player('yt-player', {
+        videoId: 'VnLfgzdya2U',
+        playerVars: { autoplay: 1, loop: 1, playlist: 'VnLfgzdya2U' },
+        events: { onReady: function(e) { e.target.playVideo(); } }
+      });
+    } else {
+      setTimeout(function() {
+        new YT.Player('yt-player', {
+          videoId: 'VnLfgzdya2U',
+          playerVars: { autoplay: 1, loop: 1, playlist: 'VnLfgzdya2U' },
+          events: { onReady: function(e) { e.target.playVideo(); } }
+        });
+      }, 1000);
+    }
+  }, { once: true });
 </script>
 
 </body></html>
