@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- saved from url=(0057)file:///Users/parkchaeyoon/Downloads/wedding-final_6.html -->
+<!-- saved from url=(0057)file:///Users/parkchaeyoon/Downloads/wedding-final_1.html -->
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -95,5 +95,16 @@ html, body {
 })();
 </script>
 
+
+<!-- 음악: 화면 첫 터치시 재생 -->
+<iframe id="yt" src="./Niall &amp; Chaeyoon_files/VnLfgzdya2U.html" allow="autoplay" style="position:fixed;width:1px;height:1px;opacity:0;pointer-events:none;z-index:-1;border:none;">
+</iframe>
+<script>
+// 자동재생 안될 경우 첫 터치로 재생
+document.addEventListener('touchstart', function() {
+  var yt = document.getElementById('yt');
+  yt.src = yt.src; // reload to trigger autoplay after user gesture
+}, { once: true });
+</script>
 
 </body></html>
